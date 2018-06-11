@@ -1,0 +1,99 @@
+/* default node - with round edges */
+.task {
+  display: block;
+  border-radius: .75em;
+  background-color: #e2e2e2;
+  position: absolute;
+  border: 4px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+.event {
+  display: block;
+  border-radius: 30px;
+  background-color: #e2e2e2;
+  position: absolute;
+  border: 4px solid black;
+  width: 30px;
+  height: 30px;
+  top: 36px;
+}
+
+.event .connector {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+/* horizontal and vertical center content */
+.task .node_content {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* default node - with round edges */
+.task.preview {
+  border-style: dashed;
+}
+
+.task .connector {
+  position: absolute;
+  border: solid 1px black;
+  background-color: #aaa;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}
+
+.task .connector.output {
+  right: -10px;
+  top: 40px;
+}
+
+.task .connector.input {
+  left: -10px;
+  top: 40px;
+}
+
+.edge {
+  stroke: #bbbbbb;
+  stroke-width: 4px;
+}
+
+.toolbar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  background: #fafafa;
+  border: solid 1px #cccccc;
+  border-radius: 2px;
+}
+
+.toolbar.one-column {
+  width: 50px;
+}
+
+.toolbar.two-column {
+  width: 100px;
+}
+
+.tool a {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(0,0,0,0);
+  display: block;
+}
+
+.tool.selected {
+  background-color: #d9ffd9;
+}
+
+.tool.selected a {
+  border: 1px solid black;
+}

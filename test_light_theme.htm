@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic Example</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/light_theme.css" />
+    <script src="libs/dagre/dagre.min.js"></script>
+    <script src="libs/interactjs/interact.min.js"></script>
+    <script src="dist/procvis.js"></script>
+  </head>
+  <body>
+    <div id="procvis_graph">
+    </div>
+    <script>
+      var Task = procvis.Task;
+
+      var graph = new procvis.Graph('procvis_graph');
+
+      var start = new procvis.Event(graph, "start");
+
+      var task1 = new Task(graph, "Task 1");
+      var task2 = new Task(graph, "Task 2");
+      var task2a = new Task(graph, "Task 2 alternative");
+      var task3 = new Task(graph, "Task 3");
+      var task3a = new Task(graph, "Task 3 alternative");
+      var task3b = new Task(graph, "Task 3 alternative b");
+      var task3c = new Task(graph, "Task 3 alternative c");
+      var task4 = new Task(graph, "Task 4");
+      var task4a = new Task(graph, "Task 4 alternative");
+      var task5 = new Task(graph, "Task 5");
+      var task6 = new Task(graph, "Task 6");
+
+      var edge0 = start.connect(task1);
+      var edge1 = task1.connect(task2);
+      var edge2 = task1.connect(task2a);
+      var edge3 = task2.connect(task3);
+      var edge4 = task2.connect(task3a);
+      var edge5 = task2.connect(task3b);
+      var edge6 = task2.connect(task3c);
+      var edge7 = task2a.connect(task3c);
+      task3.connect(task4);
+      task3.connect(task4a);
+      task4.connect(task5);
+      task5.connect(task6);
+
+      var toolbar = new procvis.Toolbar(graph);
+      new procvis.Hand(toolbar);
+      new procvis.AddTask(toolbar);
+      new procvis.AutoLayout(toolbar);
+
+      graph.layout();
+    </script>
+  </body>
+</html>

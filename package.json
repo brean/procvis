@@ -1,0 +1,24 @@
+{
+  "name": "procvis",
+  "version": "1.0.0",
+  "description": "Process Visualisation library",
+  "author": "Andreas Bresser",
+  "license": "Copyright (c) 2018 Andreas Bresser",
+  "main": "./js/index.js",
+  "scripts": {
+    "build": "npm run dist",
+    "dist": "webpack --config webpack-development.config.js",
+    "watch": "webpack --watch --config webpack-development.config.js",
+    "docs": "jsdoc -c jsdoc.conf.json -R README.md"
+  },
+  "files": [
+    "css/",
+    "libs/"
+  ],
+  "devDependencies": {
+    "webpack": "^2.2.1",
+    "babel-loader": "^7.1.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
+  }
+}

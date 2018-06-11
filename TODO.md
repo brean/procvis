@@ -1,0 +1,7 @@
+- add task
+ - create task preview, move with mouse
+ - preview
+- start & end
+- Import für BPMN
+- drag and drop
+- animation
