@@ -1,7 +1,9 @@
 import * as dagre from 'dagre';
+import * as d3 from 'd3';
 
-export default class Graph {
+export default class Graph extends EventTarget {
   constructor(elementId, options) {
+    super();
     if (!options) {
       this.options = {rankdir: 'LR', multigraph: true};
     } else {
@@ -67,7 +69,11 @@ export default class Graph {
    */
   createDOM() {
     this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    var edges = document.createElement('edges');
+    edges.setAttribute('class', 'edges');
+    this.svg.appendChild(edges);
     this.domElement.appendChild(this.svg);
+    this.d3svg = d3.select('svg').classed('d3Content', true);
   }
 
   /**

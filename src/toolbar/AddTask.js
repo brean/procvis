@@ -1,7 +1,7 @@
 /**
  * tool to add a new task
  */
-import * as interact from 'interact';
+import * as d3 from 'd3';
 import Tool from './Tool';
 import Task from '../process/Task';
 import PreviewTask from '../process/PreviewTask';
@@ -114,9 +114,10 @@ export default class AddTask extends Tool {
         }
       }
     }
-    let draggable = interact(this.domElement).draggable({});
-    draggable.on('dragmove', dragMove);
-    draggable.on('dragstart', dragStart);
-    draggable.on('dragend', dragEnd);
+    let drag = d3.drag()
+      .on('start', dragStart.bind(this))
+      .on('drag', dragMove.bind(this))
+      .on('end', dragEnd.bind(this));
+    this.domElement.call(drag);
   }
 }

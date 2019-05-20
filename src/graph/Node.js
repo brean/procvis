@@ -1,4 +1,4 @@
-import * as interact from 'interact';
+import * as d3 from 'd3';
 
 export default class Node {
   constructor(graph, label, options) {
@@ -119,8 +119,14 @@ export default class Node {
    * and add it to the document body
    */
   createDOM() {
-    // outer element hosts the node itself, css background colors,
-    // border etc. will be applied here.
+    // in the background we have a node that is attached to the SVG.
+    this.rect = d3.select('.nodes')
+      .append('rect')
+      .attr('stroke', '#ff0000');
+
+    // create a container element for the HTML-content, so we can add input etc.
+
+    // TODO: use foreignObject instead!
     this.domElement = document.createElement('div');
     this.domElement.node = this;
     this.domElement.classList.add('node');
@@ -154,9 +160,10 @@ export default class Node {
       }
       event.target.node.dragEnd();
     }
-    let draggable = interact(this.domElement).draggable({});
-    draggable.on('dragmove', dragMove);
-    draggable.on('dragstart', dragStart);
-    draggable.on('dragend', dragEnd);
+    let drag = d3.drag()
+      .on('start', dragStart.bind(this))
+      .on('drag', dragMove.bind(this))
+      .on('end', dragEnd.bind(this));
+    this.rect.call(drag);
   }
 }

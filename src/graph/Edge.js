@@ -1,6 +1,7 @@
 /**
  * The edge is a line between two Connectors
  */
+import * as d3 from 'd3';
 
 export default class Edge {
   constructor(graph, start, end) {
@@ -25,7 +26,7 @@ export default class Edge {
   }
 
   createDOM() {
-    this.path = document.createElementNS(this.graph.svg.namespaceURI, 'path');
+    this.path = d3.select('edge_layer');
     this.path.setAttributeNS(null, 'class', 'edge');
     this.path.setAttributeNS(null, 'fill', 'none');
     this.path.edge = this; // makes it easier for drag-and-drop
