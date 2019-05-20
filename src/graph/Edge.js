@@ -3,7 +3,7 @@
  */
 
 export default class Edge {
-  constructor(graph, start, end, options) {
+  constructor(graph, start, end) {
     this.start = start; //Connector
     this.start.edges.push(this);
 
@@ -48,7 +48,7 @@ export default class Edge {
     path += b.x + ',' + b.y;
 
     return path;
-  };
+  }
 
   /**
    * redraw path

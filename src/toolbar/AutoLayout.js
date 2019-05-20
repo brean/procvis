@@ -10,13 +10,13 @@ export default class AutoLayout extends Tool {
   createDOM() {
     super.createDOM();
     this.img = document.createElement('img');
-    this.img.src = "img/auto_layout.png";
+    this.img.src = 'img/auto_layout.png';
     this.link.appendChild(this.img);
   }
 
   set selected (value) {
     // we ignore the value - just call layout and be done with it
-    this._selected = !this._selected
+    this._selected = !this._selected;
     this.toolbar.graph.autoLayout = this._selected;
     super.selected = this._selected;
   }

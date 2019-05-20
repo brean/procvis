@@ -10,7 +10,7 @@ export default class Tool {
     this.domElement = document.createElement('div');
     this.domElement.classList.add('tool');
     this.link = document.createElement('a');
-    this.link.onclick = (event) => {
+    this.link.onclick = () => {
       if (this.toggleTool) {
         this.selected = !this.selected;
       } else {

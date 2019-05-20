@@ -1,7 +1,9 @@
 /**
  * tool to add a new task
  */
+import * as interact from 'interact';
 import Tool from './Tool';
+import Task from '../process/Task';
 import PreviewTask from '../process/PreviewTask';
 
 export default class AddTask extends Tool {
@@ -12,7 +14,7 @@ export default class AddTask extends Tool {
   createDOM() {
     super.createDOM();
     this.img = document.createElement('img');
-    this.img.src = "img/task.png";
+    this.img.src = 'img/task.png';
     this.link.appendChild(this.img);
     this.domElement.classList.add('add_node');
     this.addDragAndDrop();
@@ -42,7 +44,7 @@ export default class AddTask extends Tool {
    * start edit mode and create preview task
    */
   addPreview() {
-    this.preview = new PreviewTask(this.toolbar.graph, "New Task");
+    this.preview = new PreviewTask(this.toolbar.graph, 'New Task');
     this.toolbar.graph.addNode(this.preview);
   }
 
@@ -72,7 +74,6 @@ export default class AddTask extends Tool {
         let newTask = new Task(graph);
 
         // connect old inputs with input of this node
-        let removeConnections = [];
         start.edges.forEach((edge) => {
           // all edge.ends have to point to the input of the new node
           edge.end = newTask.input;
@@ -88,7 +89,6 @@ export default class AddTask extends Tool {
         let newTask = new Task(graph);
 
         // connect old inputs with input of this node
-        let removeConnections = [];
         end.edges.forEach((edge) => {
           // all edge.ends have to point to the input of the new node
           edge.start = newTask.output;
@@ -99,17 +99,14 @@ export default class AddTask extends Tool {
         elem.connector.node.connect(newTask);
         graph.recreate();
       }
-      if (elem.edge) {
-        debugger;
-      }
     }
     function dragEnd(event) {
       // snap back to inital position if nothing changes,
       // dagre does the layout, not the user
-      let elem = document.elementFromPoint(event.pageX, event.pageY)
+      let elem = document.elementFromPoint(event.pageX, event.pageY);
       if (elem) {
 
-        newConnection(elem)
+        newConnection(elem);
 
         self.removePreview();
         if (graph.autoLayout) {
@@ -118,8 +115,8 @@ export default class AddTask extends Tool {
       }
     }
     let draggable = interact(this.domElement).draggable({});
-    draggable.on('dragmove', dragMove)
+    draggable.on('dragmove', dragMove);
     draggable.on('dragstart', dragStart);
-    draggable.on('dragend', dragEnd)
+    draggable.on('dragend', dragEnd);
   }
 }

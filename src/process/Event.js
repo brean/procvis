@@ -5,10 +5,10 @@ import Node from '../graph/Node';
  * start intermediate or end
  * all events are start events for now...
  */
- export default class Event extends Node {
-   constructor(graph, label, options) {
-     super(graph, label, options);
-     this.createConnector();
+export default class Event extends Node {
+  constructor(graph, label, options) {
+    super(graph, label, options);
+    this.createConnector();
   }
 
   createDOM() {

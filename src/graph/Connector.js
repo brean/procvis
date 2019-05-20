@@ -25,11 +25,11 @@ export default class Connector {
   }
 
   get position() {
-    let rect = this.domElement.getBoundingClientRect()
+    let rect = this.domElement.getBoundingClientRect();
     return {
       x: rect.left + this.domElement.offsetWidth / 2,
       y: rect.top + this.domElement.offsetHeight / 2
-    }
+    };
   }
 
   /**
@@ -37,7 +37,7 @@ export default class Connector {
    */
   connect(other) {
     if (this.direction === 'input') {
-      throw new Error("this connector is set as input, start connecting from an output");
+      throw new Error('this connector is set as input, start connecting from an output');
     }
     let edge = new Edge(this.node.graph, this, other);
     return edge;

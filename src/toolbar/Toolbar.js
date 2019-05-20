@@ -18,7 +18,7 @@ export default class Toolbar {
       if (!item.toggleTool) {
         item.selected = item == tool;
       }
-    })
+    });
   }
 
   addTool(tool) {
