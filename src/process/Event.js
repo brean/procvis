@@ -14,15 +14,16 @@ import Node from '../graph/Node';
   createDOM() {
     super.createDOM();
     this.domElement.classList.add('event');
+    this.domElement.classList.add(this.label);
   }
 
   createConnector() {
-    this.output = new Connector(this, {direction: 'output'});
-    this.connectors = [this.output];
+    this.con = new Connector(this, {direction: 'output'});
+    this.connectors = [this.con];
   }
 
   connect(other) {
-    let edge = this.output.connect(other.input);
+    let edge = this.con.connect(other.input);
     return edge;
   }
 }

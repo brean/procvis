@@ -13,8 +13,16 @@ export default class Task extends Node {
 
   createDOM() {
     super.createDOM();
-    this.domElement.classList.add('task');
+    let domElement = this.domElement;
+    domElement.classList.add('task');
+    if (this.options && this.options.state) {
+      domElement.classList.add(this.options.state);
+    }
     this.content.innerHTML = this.label;
+    domElement.addEventListener('click', () => {
+      alertify.error('<span class="emoji">⚠</span> Error notification message.');
+      domElement.classList.add('error');
+    });
   }
 
   /**
@@ -32,7 +40,8 @@ export default class Task extends Node {
    * the order is important: this node --> other node
    */
   connect(other) {
-    let edge = this.output.connect(other.input);
+    let con = other.connectors[0]
+    let edge = this.output.connect(con);
     return edge;
   }
 }

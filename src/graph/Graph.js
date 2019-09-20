@@ -66,6 +66,12 @@ export default class Graph {
   createDOM() {
     this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this.domElement.appendChild(this.svg);
+    this.defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    this.svg.appendChild(this.defs);
+    let txt = '<marker orient="auto" refY="0.0" refX="0.0" id="Arrow2Lend"style="overflow:visible;">';
+    txt += '<path id="Arrow2LendPath" style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;" d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z " transform="scale(.5) rotate(180) translate(5,0)" />';
+    txt += '</marker>';
+    this.defs.innerHTML = txt;
   }
 
   /**

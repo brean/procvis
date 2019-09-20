@@ -6,9 +6,12 @@ export default class Node {
     // we just count our nodes, a new node gets a new id,
     // alternatively you can set the id from a database-id generated
     // by the server.
+
     Node.id = ++Node.id || 0;
     // using options we can overwrite the id
     this.id = options && options.id ? options.id : 'node_' + Node.id;
+
+    this.options = options;
 
     this.label = label || 'Node ' + Node.id;
 

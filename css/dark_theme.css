@@ -1,10 +1,58 @@
 /* default node - with round edges */
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: #253640;
+  height: 100%;
+  color: #00ffff;
+}
+
+.task.done {
+  background-color: #71f369;
+  color: black;
+}
+
+.task.in_progress {
+  color: black;
+  animation: pulse_progress 2s ease infinite;
+  -webkit-animation: pulse_progress 2s ease infinite;
+}
+
+.task.error {
+  color: black;
+  animation: pulse_error .5s ease infinite;
+  -webkit-animation: pulse_error .5s ease infinite;
+}
+
+@keyframes pulse_progress {
+  0%, 100% {
+    background-color: #f1f369;
+  }
+  50% {
+    background-color: #f7c657;
+  }
+}
+
+@keyframes pulse_error {
+  0%, 100% {
+    background-color: #b30000;
+  }
+  50% {
+    background-color: #ff4f28;
+  }
+}
+
 .task {
   display: block;
   border-radius: .75em;
-  background-color: #e2e2e2;
+  background-color: black;
   position: absolute;
-  border: 2px solid black;
+  border: 2px solid #7c93a1;
   width: 150px;
   height: 100px;
 }
@@ -12,19 +60,20 @@
 .event {
   display: block;
   border-radius: 30px;
-  background-color: #e2e2e2;
+  background-color: black;
   position: absolute;
   width: 30px;
+  margin-left: 20px;
   height: 30px;
 }
 
 .event.end {
-  border: 4px solid black;
+  border: 4px solid #7c93a1;
   top: 34px;
 }
 
 .event.start {
-  border: 2px solid black;
+  border: 2px solid #7c93a1;
   top: 36px;
 }
 
@@ -51,8 +100,8 @@
 
 .task .connector {
   position: absolute;
-  border: solid 1px black;
-  background-color: #aaa;
+  border: solid 1px #aaa;
+  background-color: black;
   width: 20px;
   height: 20px;
   border-radius: 20px;

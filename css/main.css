@@ -1,3 +1,6 @@
+body {
+  font-family: sans-serif;
+}
 #procvis_graph {
   position:absolute;
   top:0;
@@ -29,4 +32,13 @@ svg{
 .draggable {
     -ms-touch-action: none;
         touch-action: none;
+}
+#Arrow2LendPath {
+  stroke:#bbbbbb;
+  stroke-opacity:1;
+  fill:#bbbbbb;
+  fill-opacity:1
+}
+.emoji {
+  font-family: apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol;
 }
